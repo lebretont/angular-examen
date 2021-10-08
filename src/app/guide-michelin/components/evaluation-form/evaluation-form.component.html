@@ -1,0 +1,22 @@
+<form #evaluationForm="ngForm" (ngSubmit)="putEvaluation()">
+  <label>
+    Evaluateur :
+    <input #nameModel="ngModel" required minlength="1" maxlength="30" type="text" name="evaluator" [(ngModel)]="evaluator">
+    <div *ngIf="nameModel.invalid && nameModel.errors && (nameModel.errors.minlength || nameModel.errors.required)" style="color: red">Veuillez entrer un nom d'au moins 1 caractère.</div>
+    <div *ngIf="nameModel.invalid && nameModel.errors && nameModel.errors.maxlength" style="color: red">Veuillez entrer un nom de maximum 30 caractères.</div>
+  </label>
+  <br>
+  <label>
+    Commentaire :
+    <input #commmentModel="ngModel" maxlength="255" type="text" name="comment" [(ngModel)]="comment">
+    <div *ngIf="commmentModel.invalid && commmentModel.errors && commmentModel.errors.maxlength" style="color: red">Veuillez entrer un maximum de 255 caractères.</div>
+  </label>
+  <br>
+  <label>
+    Nombre d'étoiles :
+    <input #starsModel="ngModel" type="text" name="stars" [(ngModel)]="stars">
+    <div *ngIf="!isStarsValueGood()" style="color: red">Veuillez entrer une valeur entre 0,1,2 ou 3.</div>
+  </label>
+  <br>
+  <button type="submit">Submit</button>
+</form>

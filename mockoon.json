@@ -1,0 +1,171 @@
+{
+    "source": "mockoon:1.15.0",
+    "data": [
+        {
+            "type": "environment",
+            "item": {
+                "uuid": "",
+                "lastMigration": 17,
+                "name": "Guide Michelin",
+                "endpointPrefix": "",
+                "latency": 0,
+                "port": 3000,
+                "hostname": "0.0.0.0",
+                "routes": [
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "restaurants",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "[\n  {\n    \"id\": 313,\n    \"name\": \"La galette du sorcier\",\n    \"address\": \"33 Chemin de traverse, Metz\",\n    \"evaluations\": [\n      {\n        \"evaluator\": \"Charles Duchemin\",\n        \"comment\": \"C'est bien meilleur que du Tricatel !\",\n        \"stars\": 0\n      },\n      {\n        \"evaluator\": \"Les frères Troisgros\",\n        \"comment\": \"C'est bien mais tellement cher que quand on demande l'addition, on nous amène une multiplication\",\n        \"stars\": 1\n      }\n    ]\n  },\n  {\n    \"id\": 9,\n    \"name\": \"Le Clos des Sens\",\n    \"address\": \"Annecy\",\n    \"evaluations\": [\n      {\n        \"evaluator\": \"Bernard Loiseau\",\n        \"comment\": \"Ces gens ne sont pas des triples buses\",\n        \"stars\": 3\n      },\n      {\n        \"evaluator\": \"Gault & Millau\",\n        \"comment\": \"Incroyable !\",\n        \"stars\": 3\n      }\n    ]\n  },\n  {\n    \"id\": 99984,\n    \"name\": \"Chez dédé\",\n    \"address\": \"Dédéville\",\n    \"evaluations\": []\n  }\n]\n",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "post",
+                        "endpoint": "restaurants",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"id\": {{faker 'random.number' 999999}}\n}",
+                                "latency": 0,
+                                "statusCode": 201,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "",
+                        "documentation": "",
+                        "method": "put",
+                        "endpoint": "restaurants/:id",
+                        "responses": [
+                            {
+                                "uuid": "",
+                                "body": "{}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"error\": \"bad id\"\n}",
+                                "latency": 0,
+                                "statusCode": 400,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "params",
+                                        "modifier": "id",
+                                        "value": "^(-\\d+)$",
+                                        "isRegex": true
+                                    }
+                                ],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            },
+                            {
+                                "uuid": "",
+                                "body": "{\n  \"error\": \"bad id\"\n}",
+                                "latency": 0,
+                                "statusCode": 400,
+                                "label": " (copy)",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [
+                                    {
+                                        "target": "params",
+                                        "modifier": "id",
+                                        "value": "^([a-zA-Z]+)$",
+                                        "isRegex": true
+                                    }
+                                ],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    }
+                ],
+                "proxyMode": false,
+                "proxyHost": "",
+                "proxyRemovePrefix": false,
+                "https": false,
+                "cors": true,
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Methods",
+                        "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Headers",
+                        "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+                    }
+                ],
+                "proxyReqHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ],
+                "proxyResHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ]
+            }
+        }
+    ]
+}

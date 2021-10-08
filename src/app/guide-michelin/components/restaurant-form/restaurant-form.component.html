@@ -1,0 +1,17 @@
+<form #restaurantForm="ngForm" (ngSubmit)="postRestaurant()">
+  <label>
+    Nom du restaurant :
+    <input #nameModel="ngModel" required minlength="1" maxlength="30" type="text" name="name" [(ngModel)]="name">
+    <div *ngIf="nameModel.invalid && nameModel.errors && (nameModel.errors.minlength || nameModel.errors.required)" style="color: red">Veuillez entrer un nom d'au moins 1 caractère.</div>
+    <div *ngIf="nameModel.invalid && nameModel.errors && nameModel.errors.maxlength" style="color: red">Veuillez entrer un nom de maximum 30 caractères.</div>
+  </label>
+  <br>
+  <label>
+    Adresse du restaurant :
+    <input #addressModel="ngModel" required minlength="5" maxlength="50" type="text" name="address" [(ngModel)]="address">
+    <div *ngIf="addressModel.invalid && addressModel.errors && (addressModel.errors.minlength || addressModel.errors.required)" style="color: red">Veuillez entrer une adresse d'au moins 5 caractères.</div>
+    <div *ngIf="addressModel.invalid && addressModel.errors && addressModel.errors.maxlength" style="color: red">Veuillez entrer un nom de maximum 50 caractères.</div>
+  </label>
+  <br>
+  <button type="submit">Submit</button>
+</form>

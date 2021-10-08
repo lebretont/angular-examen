@@ -1,0 +1,9 @@
+<p *ngFor="let restaurant of restaurants">
+  <app-restaurant-infos [restaurant]="restaurant"></app-restaurant-infos>
+</p>
+
+<p>
+  <span>Formulaire d'ajout de restaurant</span>
+  <app-restaurant-form (restaurantPost)="postRestaurant($event)" ></app-restaurant-form>
+  <span  style="color: green">{{created}}</span>
+</p>

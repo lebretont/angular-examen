@@ -1,0 +1,31 @@
+<p *ngIf="restaurant == null">Problème lors de la récupération des informations du restaurant.</p>
+<p *ngIf="restaurant != null">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>{{restaurant.name}}</mat-card-title>
+      <mat-card-subtitle>Adresse: {{restaurant.address}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <span>
+        Evaluations :
+      </span>
+      <br>
+      <span *ngFor="let eval of restaurant.evaluations">
+        - {{eval.evaluator}} ({{eval.stars}}*) : {{eval.comment}}
+        <br>
+      </span>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-divider></mat-divider>
+  <span>Formulaire d'ajout d'évaluation :</span>
+  <app-evaluation-form (evaluationPost)="putRestaurantEvaluation($event)"></app-evaluation-form>
+  <span  style="color: green">{{created}}</span>
+
+  <br>
+  <mat-divider></mat-divider>
+  <br>
+  <span>Formulaire de modification du restaurant :</span>
+  <app-restaurant-form (restaurantPost)="putRestaurant($event)"></app-restaurant-form>
+  <span  style="color: green">{{modified}}</span>
+</p>
